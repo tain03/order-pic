@@ -1,4 +1,1 @@
-HDSD:
-Truy cập https://order-pic-tain03s-projects.vercel.app/manage.html
-Upload ảnh từ máy
-Ấn nút Save -> Tải file config về máy -> Back to game
+# order-pic
