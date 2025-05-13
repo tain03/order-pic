@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Sorting Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="ocean-header">
+            <h1>Ocean Life Sorting Game</h1>
+        </div>
+        
+        <div class="game-area">
+            <!-- Create some bubbles -->
+            <div class="bubble" style="width: 30px; height: 30px; top: 50px; right: 100px;"></div>
+            <div class="bubble" style="width: 20px; height: 20px; top: 120px; right: 150px;"></div>
+            <div class="bubble" style="width: 15px; height: 15px; top: 80px; right: 200px;"></div>
+            <div class="bubble" style="width: 25px; height: 25px; top: 150px; left: 100px;"></div>
+            <div class="bubble" style="width: 18px; height: 18px; top: 90px; left: 150px;"></div>
+            
+            <div class="source-panel" id="sourcePanel">
+                <!-- Images will be added dynamically by JavaScript -->
+            </div>
+            
+            <div class="slots-container" id="slotsContainer">
+                <!-- Slots will be added dynamically by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="message" id="message"></div>
+        
+        <div class="attempts-counter">
+            Attacks: <span id="attemptsCount">0</span>
+        </div>
+        
+        <div class="ocean-floor">
+            <button class="check-button" id="checkBtn">Kiểm Tra</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Default configuration
+        const defaultConfig = {
+            totalImages: 5,
+            imageSize: 140,
+            correctOrder: [0, 3, 2, 4, 1], // Correct order: 1, 4, 3, 5, 2
+            images: [
+                { url: "image/1.png", order: 0, name: "Dolphins playing" }, // Image 1
+                { url: "image/2.png", order: 1, name: "Fisherman" },        // Image 2
+                { url: "image/3.png", order: 2, name: "Cruise ship" },      // Image 3
+                { url: "image/4.png", order: 3, name: "Ice fishing" },      // Image 4
+                { url: "image/5.png", order: 4, name: "Dolphins and ship" } // Image 5
+            ]
+        };
+
+        // Load the default configuration when the page loads
+        window.addEventListener("load", () => {
+            // Check if there's a saved configuration in localStorage
+            const savedConfig = localStorage.getItem("gameConfig");
+            if (savedConfig) {
+                try {
+                    const parsedConfig = JSON.parse(savedConfig);
+                    loadConfiguration(parsedConfig);
+                } catch (error) {
+                    console.error("Error parsing saved configuration:", error);
+                    loadConfiguration(defaultConfig);
+                }
+            } else {
+                loadConfiguration(defaultConfig);
+            }
+        });
+    </script>
+</body>
+</html>
