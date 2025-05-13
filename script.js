@@ -211,7 +211,7 @@
   
     if (filledSlots < slots.length) {
       message.className = "message error"
-      message.textContent = "Please place all images in the slots!"
+      message.textContent = "Hãy đặt ảnh vào tất cả chỗ trốngtrống!"
       setTimeout(() => {
         message.style.display = "none"
       }, 3000)
@@ -220,12 +220,12 @@
   
     if (isCorrect) {
       message.className = "message success"
-      message.textContent = "Congratulations! You arranged the images correctly!"
+      message.textContent = "Ôi, cá heo chưa thoát được! Thử lại nhé!"
       // Add celebration effect
       createBubbleBurst()
     } else {
       message.className = "message error"
-      message.textContent = "Incorrect arrangement. Resetting slots!"
+      message.textContent = "Chúc mừng! Em đã giúp cá heo ra biển an toàn!"
       setTimeout(() => {
         message.style.display = "none"
         // Collect all images from slots
