@@ -220,12 +220,12 @@
   
     if (isCorrect) {
       message.className = "message success"
-      message.textContent = "Ôi, cá heo chưa thoát được! Thử lại nhé!"
+      message.textContent = "Chúc mừng! Em đã giúp cá heo ra biển an toàn!" 
       // Add celebration effect
       createBubbleBurst()
     } else {
       message.className = "message error"
-      message.textContent = "Chúc mừng! Em đã giúp cá heo ra biển an toàn!"
+      message.textContent = "Ôi, cá heo chưa thoát được! Thử lại nhé!"
       setTimeout(() => {
         message.style.display = "none"
         // Collect all images from slots
